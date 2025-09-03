@@ -6,3 +6,4 @@ class ApiResonse {
         this.success = success; // Indicates if the operation was successful
     }
 }
+export { ApiResonse };
