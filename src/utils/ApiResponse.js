@@ -1,4 +1,4 @@
-class ApiResonse {
+class ApiResponse {
     constructor(status, message = "Operation successful", data = null, success = true) {
         this.status = status; // HTTP status code
         this.message = message; // Success message
@@ -6,4 +6,4 @@ class ApiResonse {
         this.success = success; // Indicates if the operation was successful
     }
 }
-export { ApiResonse };
+export { ApiResponse };
