@@ -4,7 +4,17 @@ class ApiError extends Error {
     this.status = status;
     this.message = message;
     this.errors = errors; // If errors are provided, use them; otherwise, default to an empty array
-    this.stack = stack || new Error.captureStackTrace(this,this.constructor); //Capture the stack trace if not provided
+    //if (stack) {
+     // this.stack = stack;
+    //} else {
+    //  Error.captureStackTrace(this, this.constructor);
+    //}
+    //Capture the stack trace if not provided
+     if (typeof(Error.captureStackTrace) === 'function') {
+    Error.captureStackTrace(this, this.constructor);
+  }else{
+    this.stack = (new Error(message)).stack;
+  }
     this.data=null,
     this.success=false;
   }
@@ -17,4 +27,4 @@ class ApiError extends Error {
   }
 }
 
-export default ApiError;
+export {ApiError};

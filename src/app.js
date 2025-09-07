@@ -20,4 +20,4 @@ app.use(cookieParser());
 //routes
 app.use("/api/v1/users", userRouter); //http://localhost:5000/api/v1/users/
 
-export default {app}
+export default app
