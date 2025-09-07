@@ -3,6 +3,9 @@ import jwt from "jsonwebtoken";
 import {User} from "../models/user.model.js";
 import { ApiError } from "../utils/ApiError.js";
 
+
+//ye middleware isloggedin ki trh kaam karega
+
 export const verifyJWT = asyncHandler(async (req, _, next) => {  //_ is res but we are not using it
     try{
     const token = req.cookies?.accessToken || req.header("Authorization")?.replace("Bearer ", "");
