@@ -7,7 +7,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-export const uploadImage = async (localFilePath) => {
+ const uploadImage = async (localFilePath) => {
   try {
     if (!localFilePath) {
       return null;
@@ -24,3 +24,13 @@ export const uploadImage = async (localFilePath) => {
   }
 };
 
+// Function to delete an image from Cloudinary using its public ID
+const deleteImage = async (publicId) => {
+  try {
+    await cloudinary.uploader.destroy(publicId);
+  } catch (error) {
+    console.error("Error deleting image from Cloudinary:", error);
+  }
+};
+
+export { uploadImage, deleteImage };
